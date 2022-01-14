@@ -1,0 +1,26 @@
+form(action=(blog ? `/authors/update` : "/authors"), method="POST")
+  if author
+    input(type="hidden", name="id", value=author.id)
+
+  .form-group
+    label First Name
+    input.form-control(name="author[firstName]", required, value=(author ? author.firstName : null))
+
+  .form-group
+    label Last Name
+    input.form-control(name="author[lastName]", required, value=(author ? author.lastName : null))
+
+  .form-group
+    label Email
+    input.form-control(name="author[email]", required, value=(author ? author.email : null))
+
+  .form-group
+    label Password
+    input.form-control(name="author[password]", type="password", required, value=(author ? author.password : null))
+
+  .form-group
+    label Password Confirmation
+    input.form-control(name="author[passwordConfirmation]", required, type="password", value=(author ? author.passwordConfirmation : null))
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

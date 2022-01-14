@@ -1,0 +1,9 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= blog.title
+      small= blog.status.toLowerCase()
+
+    div
+      = blog.content || "Your story is processing..."

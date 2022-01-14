@@ -1,0 +1,6 @@
+if (flash)
+  .flash
+    if (flash.success.length)
+      .alert.alert-success #{flash.success.join(`\n`)}
+    if (flash.error.length)
+      .alert.alert-danger #{flash.error.join(`\n`)}

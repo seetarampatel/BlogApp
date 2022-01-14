@@ -1,0 +1,29 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th Title
+            th Status
+            th Author
+            th
+        
+        tbody
+          each blog in blogs
+            tr
+              td
+                a(href=`/blogs/${blog.id}`)= blog.title
+              td= blog.status
+              td= `${blog.author.firstName} ${blog.author.lastName}`
+              td
+                a(href=`/blogs/${blog.id}/edit`) edit
+                = ` | `
+                form.destroy(action=`/blogs/destroy`, method="POST")
+                  input(type="hidden", name="id", value=`${blog.id}`)
+                  input.destroy(type="submit", value="destroy")
+          

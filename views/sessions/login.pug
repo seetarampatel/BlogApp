@@ -1,0 +1,18 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1 Login
+
+    div
+      form(action="/authenticate", method = "POST")
+        .form-group
+          label Email
+          input.form-control(name="email", required)
+
+        .form-group
+          label Password
+          input.form-control(name="password", type="password", required)
+        
+        .form-group
+          button.btn.btn-dark(type="submit") Submit

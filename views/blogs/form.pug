@@ -1,0 +1,21 @@
+form(action=(blog ? `/blogs/update` : "/blogs"), method="POST")
+  if blog
+    input(type="hidden", name="id", value=blog.id)
+
+  .form-group
+    label Title
+    input.form-control(name="blog[title]", required, value=(blog ? blog.title : null))
+
+  .form-group
+    label Content
+    textarea.form-control(name="blog[content]")
+      = blog ? blog.title : null
+
+  .form-group
+    label Status
+    select.form-control(name="blog[status]", required)
+      each status in ['DRAFT', 'PUBLISHED']
+        option(value=status, selected=(blog && blog.status === status ? true : false))= status.toLowerCase()
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit
